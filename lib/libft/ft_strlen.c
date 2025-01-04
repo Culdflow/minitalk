@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dfeve <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/23 00:10:23 by dfeve             #+#    #+#             */
-/*   Updated: 2024/12/26 20:35:20 by dfeve            ###   ########.fr       */
+/*   Created: 2024/11/04 14:01:41 by dfeve             #+#    #+#             */
+/*   Updated: 2024/11/11 14:24:38 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef MINITALK_H
-# define MINITALK_H
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
 
-# include <signal.h>
-# include <unistd.h>
-# include <libft.h>
-
-void	banner(void);
-
-#endif
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+/*
+int main()
+{
+	printf("%zu\n", ft_strlen("hello"));
+}*/

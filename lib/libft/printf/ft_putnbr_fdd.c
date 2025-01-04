@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
 static int	recursive_putnbr(int n, int fd)
 {
@@ -20,15 +20,15 @@ static int	recursive_putnbr(int n, int fd)
 	count++;
 	if (n < 10)
 	{
-		ft_putchar_fd(n + '0', fd);
+		ft_putchar_fdd(n + '0', fd);
 		return (1);
 	}
 	count += recursive_putnbr(n / 10, fd);
-	ft_putchar_fd((n % 10) + '0', fd);
+	ft_putchar_fdd((n % 10) + '0', fd);
 	return (count);
 }
 
-int	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fdd(int n, int fd)
 {
 	int	num;
 	int	count;
@@ -37,12 +37,12 @@ int	ft_putnbr_fd(int n, int fd)
 	count = 0;
 	if (n == INT_MIN)
 	{
-		ft_putstr_fd("-2147483648", fd);
+		ft_putstr_fdd("-2147483648", fd);
 		return (11);
 	}
 	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
+		ft_putchar_fdd('-', fd);
 		num = -num;
 		count++;
 	}
@@ -58,11 +58,11 @@ static int	urecursive_putnbr(unsigned int n, int fd)
 	count++;
 	if (n < 10)
 	{
-		ft_putchar_fd(n + '0', fd);
+		ft_putchar_fdd(n + '0', fd);
 		return (1);
 	}
 	count += urecursive_putnbr(n / 10, fd);
-	ft_putchar_fd((n % 10) + '0', fd);
+	ft_putchar_fdd((n % 10) + '0', fd);
 	return (count);
 }
 

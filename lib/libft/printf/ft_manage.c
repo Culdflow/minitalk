@@ -10,20 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
 static char	print_nb(unsigned int i, int maj)
 {
 	if (i < 10)
 	{
-		ft_putnbr_fd(i, 1);
+		ft_putnbr_fdd(i, 1);
 	}
 	else if (i < 16)
 	{
 		if (maj == 1)
-			ft_putchar_fd((i - 10) + 'A', 1);
+			ft_putchar_fdd((i - 10) + 'A', 1);
 		else
-			ft_putchar_fd((i - 10) + 'a', 1);
+			ft_putchar_fdd((i - 10) + 'a', 1);
 	}
 	return (1);
 }
@@ -46,13 +46,13 @@ int	ft_itohex(unsigned int i, int maj)
 static char	pprint_nb(unsigned long long i, int maj)
 {
 	if (i < 10)
-		ft_putnbr_fd(i, 1);
+		ft_putnbr_fdd(i, 1);
 	else if (i < 16)
 	{
 		if (maj == 1)
-			ft_putchar_fd((i - 10) + 'A', 1);
+			ft_putchar_fdd((i - 10) + 'A', 1);
 		else
-			ft_putchar_fd((i - 10) + 'a', 1);
+			ft_putchar_fdd((i - 10) + 'a', 1);
 	}
 	return (1);
 }

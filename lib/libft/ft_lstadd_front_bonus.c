@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dfeve <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/23 00:10:23 by dfeve             #+#    #+#             */
-/*   Updated: 2024/12/26 20:35:20 by dfeve            ###   ########.fr       */
+/*   Created: 2024/11/09 20:07:38 by dfeve             #+#    #+#             */
+/*   Updated: 2024/11/11 21:30:39 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef MINITALK_H
-# define MINITALK_H
-
-# include <signal.h>
-# include <unistd.h>
-# include <libft.h>
-
-void	banner(void);
-
-#endif
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (lst)
+	{
+		if (*lst)
+			new->next = *lst;
+		*lst = new;
+	}
+}

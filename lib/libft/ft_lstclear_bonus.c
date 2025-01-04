@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dfeve <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/23 00:10:23 by dfeve             #+#    #+#             */
-/*   Updated: 2024/12/26 20:35:20 by dfeve            ###   ########.fr       */
+/*   Created: 2024/11/09 21:25:41 by dfeve             #+#    #+#             */
+/*   Updated: 2024/11/12 16:41:00 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef MINITALK_H
-# define MINITALK_H
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list	*tmp;
 
-# include <signal.h>
-# include <unistd.h>
-# include <libft.h>
-
-void	banner(void);
-
-#endif
+	if (!lst || !*lst || !del)
+		return ;
+	while (lst && *lst)
+	{
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
+	}
+}

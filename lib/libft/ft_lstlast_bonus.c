@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dfeve <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/23 00:10:23 by dfeve             #+#    #+#             */
-/*   Updated: 2024/12/26 20:35:20 by dfeve            ###   ########.fr       */
+/*   Created: 2024/11/09 20:18:24 by dfeve             #+#    #+#             */
+/*   Updated: 2024/11/11 17:20:00 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef MINITALK_H
-# define MINITALK_H
-
-# include <signal.h>
-# include <unistd.h>
-# include <libft.h>
-
-void	banner(void);
-
-#endif
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}

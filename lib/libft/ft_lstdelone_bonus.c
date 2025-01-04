@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfeve <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 16:34:16 by dfeve             #+#    #+#             */
-/*   Updated: 2024/11/11 14:22:19 by dfeve            ###   ########.fr       */
+/*   Created: 2024/11/09 21:22:47 by dfeve             #+#    #+#             */
+/*   Updated: 2024/11/11 17:17:55 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putchar_fd(char c, int fd)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	write(fd, &c, 1);
-	return (1);
+	if (!lst || !del)
+		return ;
+	(*del)(lst->content);
+	free(lst);
 }

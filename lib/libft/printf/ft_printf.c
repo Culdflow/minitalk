@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
 static int	fonction(va_list args)
 {
@@ -20,10 +20,10 @@ static int	fonction(va_list args)
 	count = 0;
 	f = va_arg(args, unsigned long long);
 	if (f == 0)
-		count += ft_putstr_fd("(nil)", 1);
+		count += ft_putstr_fdd("(nil)", 1);
 	else
 	{
-		count += ft_putstr_fd("0x", 1);
+		count += ft_putstr_fdd("0x", 1);
 		count += ft_pitohex(f, 0);
 	}
 	return (count);
@@ -35,13 +35,13 @@ static int	manage_percent(const char *str, int *i, va_list args)
 
 	count = 0;
 	if (str[*i + 1] == 'd' || str[*i + 1] == 'i')
-		count += ft_putnbr_fd(va_arg(args, int), 1);
+		count += ft_putnbr_fdd(va_arg(args, int), 1);
 	else if (str[*i + 1] == 'c')
-		count += ft_putchar_fd(va_arg(args, int), 1);
+		count += ft_putchar_fdd(va_arg(args, int), 1);
 	else if (str[*i + 1] == 's')
-		count += ft_putstr_fd(va_arg(args, char *), 1);
+		count += ft_putstr_fdd(va_arg(args, char *), 1);
 	else if (str[*i + 1] == '%')
-		count += ft_putchar_fd('%', 1);
+		count += ft_putchar_fdd('%', 1);
 	else if (str[*i + 1] == 'x' || str[*i + 1] == 'X')
 		count += ft_itohex(va_arg(args, unsigned int), str[*i + 1] != 'x');
 	else if (str[*i + 1] == 'u')
@@ -67,7 +67,7 @@ int	ft_printf(const char *str, ...)
 			count += manage_percent(str, &i, args);
 		else
 		{
-			ft_putchar_fd(str[i], 1);
+			ft_putchar_fdd(str[i], 1);
 			count++;
 			i++;
 		}
@@ -75,12 +75,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (count);
 }
-
-// int main()
-// {
-// 	void	*p;
-// 	p = malloc(1);
-// 	ft_printf("number: %s\n", NULL);
-// 	printf("number: %s\n", NULL);
-// 	free(p);
-// }
